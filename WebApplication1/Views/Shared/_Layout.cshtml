@@ -1,42 +1,99 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    <title>Trang chủ</title>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css">
+    <link rel="stylesheet" href="~/Content/Assets/CSS/style.css" />
+    <script src="~/Content/Assets/JS/style.js"></script>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+    <!-- ------------thanh menu------------ -->
+    <header class="">
+        <div class="">
+            <a href="">
+                <button class="btn btn-collapse float-left">
+                    <span class="logo-symbol">IT</span>
+                    <span class="logo-text">NEWS</span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-            </div>
+            </a>
+            <button id="collapseBtn" name="btnCollapse" class="btn btn-collapse float-right">
+                <i id="collapseIcon" class="fas fa-bars"></i>
+            </button>
         </div>
-    </div>
-    <div class="container body-content">
+    </header>
+    <nav id="wrapper" class="wrapper">
+        <form action="" method="get" class="text-right">
+            <input type="text" name="search-keyword" class="search-input" placeholder="Nhập nội dung tìm kiếm">
+            <button class="btn btn-search">
+                <i class="fas fa-search"></i>
+            </button>
+        </form>
+        <ul>
+            <a href="">
+                <li>Thời sự</li>
+            </a>
+            <a href="">
+                <li>Kinh doanh</li>
+            </a>
+            <a href="">
+                <li>Quốc tế</li>
+            </a>
+            <a href="">
+                <li>Quân sự</li>
+            </a>
+            <a href="">
+                <li>Thể thao</li>
+            </a>
+            <a href="">
+                <li>Cư dân mạng</li>
+            </a>
+            <a href="">
+                <li>Giải trí</li>
+            </a>
+            <a href="">
+                <li>Pháp luật</li>
+            </a>
+            <a href="">
+                <li>Sống khoẻ</li>
+            </a>
+            <a href="">
+                <li>Công nghệ</li>
+            </a>
+        </ul>
+    </nav>
+    <!-- ------------end thanh menu------------ -->
+    <!-- ------------body------------ -->
+    <div id="body">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
     </div>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    <!-- ------------end body------------ -->
+    <a href="#body" id="btn-to-top" class="btn hidden">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    <!-- ------------footer------------ -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="text-center">
+                Copyright © 2020 IT NEWS. All Rights Reserved
+            </div>
+            <ul>
+                <li><a href="">Thời sự</a></li>|
+                <li><a href="">Kinh doanh</a></li>|
+                <li><a href="">Quốc tế</a></li>|
+                <li><a href="">Quân sự</a></li>|
+                <li><a href="">Thể thao</a></li>|
+                <li><a href="">Cư dân mạng</a></li>|
+                <li><a href="">Thời sự</a></li>|
+                <li><a href="">Giải trí</a></li>|
+                <li><a href="">Pháp luật</a></li>|
+                <li><a href="">Sống khoẻ</a></li>|
+                <li><a href="">Công nghệ</a></li>
+            </ul>
+        </div>
+    </footer>
+    <!-- ------------end footer------------ -->
 </body>
+
 </html>

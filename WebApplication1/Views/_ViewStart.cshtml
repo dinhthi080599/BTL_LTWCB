@@ -1,3 +1,13 @@
 ﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    string CurrentName = Convert.ToString(HttpContext.Current.Request.RequestContext.RouteData.Values["Controller"]);
+    switch (CurrentName)
+    { 
+        case "Login":
+            Layout = "~/Views/Shared/_LoginLayout.cshtml";
+            break;
+        default:
+            //User layout
+            Layout = "~/Views/Shared/_Layout.cshtml";
+            break;
+    }
 }

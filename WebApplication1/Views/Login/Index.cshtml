@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<form action="~/Login/check_login" method="post">
+    <h2>Login</h2>
+    <Label for="user_name">Tên đăng nhập: </Label>
+    <input type="text" id="user_name" name="user_name" value="" />
+    <br />
+    <label for="password">Mật khẩu: </label>
+    <input type="text" id="password" name="password" value="" />
+    <br />
+    <button type="submit">Đăng nhập</button>
+</form>
+
+

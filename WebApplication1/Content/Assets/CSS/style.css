@@ -1,0 +1,330 @@
+/* -------------------------------------------biến-------------------------------------------*/
+:root{
+--mobile-width: 988px; /*có sửa thì sửa cả phần @media nữa nhé*/
+--logo-size: 35px;
+}
+/* -------------------------------------------end biến-------------------------------------------*/
+
+/* -------------------------------------------mặc định-------------------------------------------*/
+* {
+	box-sizing: border-box;
+	font-family: 'sans-serif','arial';
+	text-decoration: none;
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+	transition: 0.5s;
+}
+a:visited {
+	color: inherit;
+}
+body {
+	font-size: 14px;
+}
+/*div {
+width: 100%;
+}*/
+ul,li {
+	text-align: center;
+}
+ul {
+	width: 100%;
+	align-self: center;
+}
+.text-left {
+	text-align: left;
+}
+.text-center {
+	text-align: center;
+}
+.text-right {
+	text-align: right;
+}
+.text-justify {
+	text-align: justify;
+}
+.float-left {
+	float: left;
+}
+.float-right {
+	float: right;
+}
+.btn {
+	cursor: pointer;
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    outline: none;
+}
+.btn-collapse {
+	height: 50px;
+	padding: 13px 16px;
+	color: #fff;
+}
+.btn-light {
+	width: 50px;
+	color: seagreen;
+	background-color: #fff;
+	border-radius: 0px;
+}
+.hidden {
+	display: none;
+}
+.text-detail {
+	opacity: .8;
+}
+/* -------------------------------------------end mặc định-------------------------------------------*/
+
+/* -------------------------------------------style-------------------------------------------*/
+header {
+	position: absolute;
+	width: 100%;
+	color: #fff;
+	height: 0px;
+	z-index: 9 !important;
+}
+header div {
+	max-width: var(--mobile-width);
+	margin: auto;
+}
+#collapseBtn {
+	display: none;
+}
+.logo-symbol {
+	font-size: var(--logo-size);
+	padding: 2px 10px;
+	border-radius: 5px;
+	background: seagreen;
+	color: #fff;
+	font-weight: 900;
+}
+.logo-text {
+	font-size: var(--logo-size);
+	color: seagreen;
+	font-weight: 900;
+}
+nav ul {
+	background-color: seagreen;
+	height: 40px;
+	margin-bottom: 1rem;
+}
+nav li {
+	display: inline-block;
+	background-color: seagreen;
+	padding: .8em;
+	font-weight: bold;
+	color: #fff;
+}
+nav li:hover {
+	background-color: #1e7b47;
+}
+nav form {
+	margin: auto;
+	margin-top: -40px;
+	max-width: 500px;
+}
+.wrapper {
+	padding-top: 50px;
+	position: absolute;
+	width: 100%;
+	margin-top: 0%;
+	z-index: 1 !important;
+	background-color: #fff;
+}
+header i:active {
+	transform: rotate(180deg);
+	transition: .2s;
+}
+.slide {
+	margin-top: 0% !important;
+}
+.wrapper input {
+	margin: 10px !important;
+	padding: 10px;
+	width: 95%;
+	height: 40px;
+	border: solid 1px #eee;
+	z-index: 1;
+	outline: none;
+}
+.wrapper button {
+	z-index: 2;
+	color: #fff;
+	margin-top: -78px;
+	margin-right: 10px;
+	background-color: seagreen;
+	border-radius: 0px;
+	border: none;
+	height: 40px;
+	width: 40px;
+}
+#body {
+	max-width: var(--mobile-width);
+	padding: 10px;
+	padding-top: 140px;
+	margin: auto;
+}
+article {
+	padding-bottom: .7em;
+}
+.hot-news {
+	display: flex;
+}
+.hr {
+	border-bottom: 2px solid seagreen;
+	margin-bottom: 1em;
+}
+.news .img {
+	width: 100%;
+}
+.news div {
+	display: inline-flex;
+}
+.news p {
+	font-size: 17px;
+	margin-left: 1em;
+}
+.hot-news-main {
+	width: 59%;
+}
+.hot-news-subs {
+	margin-left: 1em;
+	width: 39%;
+}
+a.img {
+	max-width: 320px;
+}
+.news img {
+	width: 100%;
+}
+.news p {
+	width: 100%;
+}
+.hot-news p {
+	font-size: 15px;
+}
+article .news-title {
+	text-align: justify;
+	font-weight: bold;
+	padding: .4em 0em;
+	font-size: 1.6em;
+}
+.topic-title {
+	padding-left: .8em;
+	font-size: 1.6em;
+	font-weight: bold;
+	color: seagreen !important;
+	border-left: 5px solid seagreen;
+}
+#btn-to-top {
+	width: 45px;
+	height: 45px;
+	font-size: 1.3rem;
+	position: fixed;
+	right: 4%;
+	top: 55%;
+	background-color: seagreen;
+	color: #fff;
+	z-index: 9;
+
+}
+.footer {
+	height: 180px;
+	padding: 1rem;
+	border-top: 3px solid seagreen;
+	color: #aaa;
+	background-color: #333;
+}
+.footer-content {
+	margin: auto;
+	max-width: var(--mobile-width);
+}
+footer li {
+	display: inline-block;
+	padding: .6rem;
+}
+/* -------------------------------------------end style-------------------------------------------*/
+
+/* -------------------------------------------responesive-------------------------------------------*/
+@media screen and (max-width: 988px) {
+	header {
+		position: fixed;
+		top: 0;
+		background-color: seagreen;
+		color: #fff !important;
+		height: 50px;
+	}
+	#collapseBtn {
+		display: block;
+	}
+	nav li{
+		width: 30%;
+		margin: 5px 5px;
+	}
+	header button {
+		font-size: 16px;
+	}
+	.wrapper {
+		position: fixed;
+		margin-top: -150%;
+	}
+	.logo-symbol {
+		font-size: 16px;
+		padding: 0px 5px;
+		border-radius: 5px;
+		background: #fff;
+		color: seagreen;
+	}
+	.logo-text {
+		font-size: 16px;
+		color: #fff;
+		font-weight: bold;
+	}
+	nav form {
+		margin: auto;
+		max-width: var(--mobile-width);
+	}
+	nav li {
+		width: 120px !important;
+		background-color: #eee;
+		border: 1px solid #ddd;
+		padding: 10px 10px;
+		color: #555;
+	}
+	nav ul {
+		background-color: #fff;
+		height: auto;
+	}
+	#body {
+		padding: 1em;
+		padding-top: 60px;
+	}
+	.hot-news {
+		display: block;
+	}
+	.hot-news p {
+		font-size: 17px;
+	}
+	.hot-news-main {
+		width: 100%;
+		border-bottom: 1px solid #eee;
+	}
+	.news {
+		border-bottom: 1px solid #eee;
+	}
+	.hot-news-subs {
+		margin: 0;
+		width: 100%;
+	}
+
+}
+/* -------------------------------------------end responesive-------------------------------------------*/
