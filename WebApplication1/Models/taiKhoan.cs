@@ -33,7 +33,35 @@ namespace WebApplication1.Models
                     }
                 }
             }
+            conn.Close();
             return false;
         }
+        public bool TaoTK(string sUsername, string sPassword)
+        {
+            // tạo kết nối với csdl
+            SqlConnection conn = base.Conn();
+            // tạo sql command
+            SqlCommand cmd = new SqlCommand("SP_ThemTK", conn);
+            // 
+            cmd.CommandType = CommandType.StoredProcedure;
+            // truyền các parameter cho procedure
+            cmd.Parameters.AddWithValue("@sUsername", sUsername);
+            cmd.Parameters.AddWithValue("@password", sPassword);
+            
+            conn.Open(); // mở kết nối với csdl
+            // thực thi câu lệnh
+            // với những câu truy vấn không trả về dữ liệu (insert, update, delete) 
+            // nó sẽ trả về số bản ghi bị tác động (tác động tương đương với được thêm mới, cập nhật hoặc xóa
+            int aff = cmd.ExecuteNonQuery();
+            if(aff > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
     }
 }
