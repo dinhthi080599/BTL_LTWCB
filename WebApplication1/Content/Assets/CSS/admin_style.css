@@ -1,0 +1,354 @@
+/* -------------------------------------------biến-------------------------------------------*/
+:root{
+--logo-size: 35px;
+}
+/* -------------------------------------------end biến-------------------------------------------*/
+
+/* -------------------------------------------mặc định-------------------------------------------*/
+* {
+	box-sizing: border-box;
+	font-family: 'sans-serif','arial';
+	text-decoration: none;
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+}
+a:visited {
+	color: inherit;
+}
+body {
+	/*font-size: 14px;*/
+}
+ul,li {
+	/*text-align: center;*/
+}
+ul {
+	width: 100%;
+	align-self: center;
+}
+.text-left {
+	text-align: left;
+}
+.text-center {
+	text-align: center;
+}
+.text-right {
+	text-align: right;
+}
+.text-justify {
+	text-align: justify;
+}
+.float-left {
+	float: left;
+}
+.float-right {
+	float: right;
+}
+.btn {
+	cursor: pointer;
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    outline: none;
+}
+.btn-light {
+	width: 50px;
+	color: seagreen;
+	background-color: #fff;
+	border-radius: 0px;
+}
+.hidden {
+	display: none;
+}
+.text-detail {
+	opacity: .8;
+}
+.col {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+}
+.col, .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+.col-1 {
+    -ms-flex: 0 0 8.33%;
+    flex: 0 0 8.33%;
+    max-width: 8.33%;
+}
+.col-2 {
+    -ms-flex: 0 0 16.67%;
+    flex: 0 0 16.67%;
+    max-width: 16.67%;
+}
+.col-3 {
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+.col-4 {
+    -ms-flex: 0 0 33.33%;
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+}
+.col-5 {
+    -ms-flex: 0 0 41.67%;
+    flex: 0 0 41.67%;
+    max-width: 41.67%;
+}
+.col-6 {
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+.col-7 {
+    -ms-flex: 0 0 58.33%;
+    flex: 0 0 58.33%;
+    max-width: 58.33%;
+}
+.col-8 {
+    -ms-flex: 0 0 66.67%;
+    flex: 0 0 66.67%;
+    max-width: 66.67%;
+}
+.col-9 {
+    -ms-flex: 0 0 75%;
+    flex: 0 0 75%;
+    max-width: 75%;
+}
+.col-10 {
+    -ms-flex: 0 0 83.33%;
+    flex: 0 0 83.33%;
+    max-width: 83.33%;
+}
+.col-11 {
+    -ms-flex: 0 0 91.67%;
+    flex: 0 0 91.67%;
+    max-width: 91.67%;
+}
+.col-12 {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+label {
+	font-size: 16px;
+}
+form {
+	/*margin: 1rem;*/
+}
+.form-input {
+    width: 100%;
+    height: calc(1.5em + .7rem + 2px);
+    padding: .3rem .7rem;
+    font-size: 1rem;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+header {
+	padding-bottom: 1rem;
+	margin-bottom: 1rem;
+	color: seagreen;
+	font-weight: bold;
+	font-size: 18px;
+	border-bottom: 1px solid #ddd;
+}
+table {
+	border: 1px solid #eee;
+	width: 100%;
+	border-collapse: collapse;
+}
+table td, table th {
+    padding: .75rem;
+    vertical-align: middle;
+	border: 1px solid #eee;
+}
+/* -------------------------------------------end mặc định-------------------------------------------*/
+
+/* -------------------------------------------style-------------------------------------------*/
+nav ul {
+	background-color: seagreen;
+	height: 40px;
+}
+nav li {
+	display: inline-block;
+	background-color: seagreen;
+	padding: .7rem 1rem;
+	font-weight: bold;
+	color: #fff;
+}
+nav li:hover {
+	background-color: #1e7b47;
+}
+.menu-nav {
+	position: absolute;
+	width: 100%;
+	margin-top: 0%;
+	z-index: 3 !important;
+}
+.menu-nav .active {
+	background-color: #1e7b47;
+}
+#body {
+	padding: 10px;
+	padding-top: 50px;
+	margin: auto;
+	transition: .5s;
+	background-color: #eee;
+	min-height: 920px;
+}
+#welcome {
+	background-color: #5ebb87;
+	text-align: center;
+	color: #fff;
+}
+#welcome h1 {
+	padding: 180px 0px 180px;
+	font-size: 40px;
+}
+.hr {
+	border-bottom: 2px solid seagreen;
+	margin-bottom: 1em;
+}
+#btn-to-top {
+	width: 45px;
+	height: 45px;
+	font-size: 1.3rem;
+	position: fixed;
+	right: 4%;
+	top: 55%;
+	background-color: seagreen;
+	color: #fff;
+	z-index: 9;
+
+}
+section article {
+	background-color: #fff;
+	padding: 1rem;
+}
+section.left {
+	border-right: .5rem solid #eee;
+}
+.btn-add {
+	color: #fff;
+	background-color: seagreen;
+}
+.btn-add:hover {
+	background-color: #1e7b47;
+}
+.btn-edit {
+	color: #fff;
+	background-color: #ffaa33;
+}
+.btn-edit:hover {
+	background-color: #ef9a23;
+}
+.btn-del {
+	color: #fff;
+	background-color: #ff3322;
+}
+.list-item {
+    width: 140px;
+    text-align: center;
+}
+.btn-del:hover {
+	background-color: #ef2312;
+}
+.sub-list {
+    text-align: center;
+    margin-left: -1rem;
+    width: 140px;
+    display: none;
+    position: absolute;
+    margin-top: .6rem;
+    z-index: 1;
+}
+.sub-list li {
+    background-color: #fff;
+    padding: 1rem 1rem;
+    width: 140px;
+}
+.sub-list li:hover {
+    background-color: #a5e3c4;
+    color: #fff;
+}
+.sub-list li a {
+    color: #000;
+}
+.list-item:hover .sub-list {
+    display: block;
+}
+.footer {
+	/*position: absolute;
+	bottom: 0px;*/
+	height: 50px;
+	width: 100%;
+	padding: 1rem;
+	border-top: 3px solid seagreen;
+	color: #aaa;
+	background-color: #333;
+}
+footer li {
+	display: inline-block;
+	padding: .6rem;
+}
+
+/*----modal----*/
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 400px;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+/* -------------------------------------------end style-------------------------------------------*/

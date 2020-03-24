@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Trang chủ</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css">
+    <link rel="stylesheet" href="~/Content/Assets/CSS/admin_style.css" />
+</head>
+<body>
+    <!-- ------------thanh menu------------ -->
+    <nav id="menu" class="menu-nav">
+        <ul>
+            <li>@Html.ActionLink("HOME", "Index", "Admin")</li>
+            <li>@Html.ActionLink("Quản lý loại bài viết", "Index", "TopicManager")</li>
+            <li>@Html.ActionLink("Quản lý bài viết", "Index", "Admin")</li>
+            @if (ViewBag.quyen == 1)
+            {
+                <li>@Html.ActionLink("Quản lý tài khoản", "Index", "AccountManager")</li>
+            }
+            <li class="list-item">
+                <a href="">Tài khoản</a>
+                <ul class="sub-list">
+                    <li class=""><a href="#" onclick="OpenModal()">Đổi mật khẩu</a></li>
+                    <li class="">@Html.ActionLink("Đăng xuất", "Logout", "Login")</li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <!-- ------------end thanh menu------------ -->
+    <!-- ------------body------------ -->
+    @RenderBody()
+    <!-- ------------end body------------ -->
+    <a href="#body" id="btn-to-top" class="btn hidden">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    <!-- ------------footer------------ -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="text-center">
+                Copyright © 2020 IT NEWS. All Rights Reserved
+            </div>
+        </div>
+    </footer>
+    <!-- ------------end footer------------ -->
+    <!-- ------------modal------------ -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span id="closeModal" class="close">&times;</span>
+                <h2>Đổi mật khẩu</h2>
+            </div>
+            <div class="modal-body">
+                <form action="~/Login/ChangePassword" method="post">
+                    <br />
+                    <label for="oldPass">Mật khẩu cũ</label>
+                    <input id="oldPass" class="form-input" type="password" name="oldPass" value="" required onchange="Check(this)" />
+                    <small id="warningPass" for="oldPass" style="color:#ff5500" class="hidden">Mật khẩu cũ không đúng <br /> </small>
+                    <label for="oldPass">Mật khẩu mới</label>
+                    <input id="newPass" class="form-input" type="password" name="newPass" value="" required />
+                    <button id="btnConfirmCP" class="btn btn-add" type="button" name="btnConfirmCP">Lưu</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- ------------end modal------------ -->
+    <input id="unknowThing" type="hidden" name="unknow" value="@ViewBag.unknowThing" />
+</body>
+<script src="~/Content/Assets/JS/md5.min.js"></script>
+<script src="~/Content/Assets/JS/admin_style.js"></script>
+</html>

@@ -10,26 +10,47 @@ namespace WebApplication1.Controllers
     public class LoginController : Controller
     {
         // GET: Login
+        #region Parameters
+        AccSession session = new AccSession();
+        #endregion
         public ActionResult Index()
         {
+            session.Clear();
             return View();
         }
 
         [HttpPost]
-        public void check_login()
+        #region Methods
+        public void Check_Login()
         {
-            string sUsername = Request["user_name"];
-            string sPassword = Request["password"];
-            TaiKhoan tk = new TaiKhoan();
-            bool tt = tk.Get_TaiKhoan(sUsername, sPassword);
-            if(tt)
+            string sUsername = Request["Username"];
+            string sPassword = Request["Password"];
+            if(session.Check_Account(sUsername, sPassword))
             {
                 Response.Redirect("~/admin");
             }
             else
             {
-                Response.Redirect("~/Login");
+                Response.Redirect("~/login");
             }
         }
+
+        public ActionResult ChangePassword()
+        {
+            string oldPass = Request["oldPass"];
+            string newPass = Request["newPass"];
+            if (session.Update_Password(newPass))
+            {
+                TempData["message"] = "Đổi mật khẩu thành công";
+                return RedirectToAction("Index", new { change = true });
+            }
+            return RedirectToAction("Index", new { change = false });
+        }
+
+        public void Logout()
+        {
+            Response.Redirect("~/login");
+        }
+        #endregion
     }
 }

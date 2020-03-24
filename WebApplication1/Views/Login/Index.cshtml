@@ -2,16 +2,29 @@
 @{
     ViewBag.Title = "Login";
 }
-
-<form action="~/Login/check_login" method="post">
-    <h2>Login</h2>
-    <Label for="user_name">Tên đăng nhập: </Label>
-    <input type="text" id="user_name" name="user_name" value="" />
-    <br />
-    <label for="password">Mật khẩu: </label>
-    <input type="text" id="password" name="password" value="" />
-    <br />
-    <button type="submit">Đăng nhập</button>
+<form action="~/Login/check_login" method="post" class="login-box">
+    <h1>Login</h1>
+    <div class="textbox">
+        <i class="fa fa-user" aria-hidden="true"></i>
+        <input type="text" name="Username" placeholder="Username">
+    </div>
+    <div class="textbox">
+        <i class="fa fa-lock" aria-hidden="true"></i>
+        <input type="password" name="Password" placeholder="Password">
+    </div>
+    <input class="btn" type="submit" name="" value="Sign in">
 </form>
+<script>
+    var message = window.location.search.substr(1).substring(7);
+    if (message.length > 0) {
+        console.log(message);
+        if (message == "true" || message == "True") {
+            alert("Đổi mật khẩu thành công! Hãy đăng nhập lại!");
+        }
+        else {
+            alert("Đổi mật khẩu không thành công");
+        }
+    }
+</script>
 
 
