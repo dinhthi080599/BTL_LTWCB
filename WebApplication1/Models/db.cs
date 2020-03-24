@@ -13,7 +13,6 @@ namespace WebApplication1.Models
 {
     public class db
     {
-
         SqlConnection conn;
         public SqlConnection Conn()
         {

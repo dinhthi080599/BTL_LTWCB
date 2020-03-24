@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "Quản lý loại bài viết";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div id="body" class="row">
+    <section class="col-5 left">
+        <article>
+            <header class="">Thêm/Sửa loại tin</header>
+            <form action="" method="post">
+                <label for="sTenLoaiTin">Tên loại tin:</label>
+                <input id="PK_iMaLoaiTin" type="hidden" name="id" value="">
+                <input type="text" name="sTenLoaiTin" id="sTenLoaiTin" class="form-input">
+                <button id="submit" type="submit" name="submit" class="btn btn-add" value="add">Thêm</button>
+                <button id="cancel" type="button" name="cancel" class="btn btn-del hidden" value="cancel" onclick="cancelEdit(this)">Huỷ</button>
+            </form>
+        </article>
+    </section>
+    <section class="col-7">
+        <article>
+            <header>Danh sách loại tin</header>
+            <table width="100%">
+                <thead>
+                    <tr>
+                        <th width="10%">STT</th>
+                        <th>Tên loại tin</th>
+                        <th>Tác vụ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="text-center">1</td>
+                        <td>Thời sự</td>
+                        <td class="text-center">
+                            <button type="button" name="btnEdit" class="btn btn-edit" onclick="editTopic(this)" value="1" data-name="Thời sự">Sửa</button>
+                            <button type="button" name="btnDel" class="btn btn-del" onclick="return confirm('Xoá?');" value="1">Xoá</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">2</td>
+                        <td>Cộng đồng mạng</td>
+                        <td class="text-center">
+                            <button type="button" name="btnEdit" class="btn btn-edit" onclick="editTopic(this)" value="2" data-name="Cộng động mạng">Sửa</button>
+                            <button type="button" name="btnDel" class="btn btn-del" onclick="return confirm('Xoá?');" value="2">Xoá</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">3</td>
+                        <td>Thể thao</td>
+                        <td class="text-center">
+                            <button type="button" name="btnEdit" class="btn btn-edit" onclick="editTopic(this)" value="3" data-name="Thể thao">Sửa</button>
+                            <button type="button" name="btnDel" class="btn btn-del" onclick="return confirm('Xoá?');" value="3">Xoá</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+    </section>
+</div>
+

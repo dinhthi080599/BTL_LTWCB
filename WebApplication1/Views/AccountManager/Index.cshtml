@@ -1,0 +1,63 @@
+﻿@using WebApplication1.Models
+@model List<TaiKhoan>
+@{
+    ViewBag.Title = "Quản lý tài khoản";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div id="body" class="row">
+    <section class="col-5 left">
+        <article>
+            <header class="">Thêm/Sửa Tài khoản</header>
+            <form id="InsUpdForm" action="~/AccountManager/InsertAccount" method="post" name="InsUpdForm">
+                <input id="PK_iMaTK" type="hidden" name="id" value="">
+                <label for="sUsername">Quyền:</label>
+                <select id="FK_iMaQuyen" name="FK_iMaQuyen" class="form-input">
+                    <option value="1">Quản trị</option>
+                    <option value="2">Người viết bài</option>
+                </select>
+                <label for="sUsername">Tên tài khoản:</label>
+                <input type="text" name="sUsername" id="sUsername" class="form-input">
+                <label for="sPassword">Mật khẩu mới:</label>
+                <input type="text" name="sPassword" id="sPassword" class="form-input">
+                <button id="submit" type="submit" name="submit" class="btn btn-add" value="add">Thêm</button>
+                <button id="cancel" type="button" name="cancel" class="btn btn-del hidden" value="cancel" onclick="cancelEditAccount(this)">Huỷ</button>
+            </form>
+        </article>
+    </section>
+    <section class="col-7">
+        <article>
+            <header>Danh sách Tài khoản</header>
+            <table width="100%">
+                <thead>
+                    <tr>
+                        <th width="10%">STT</th>
+                        <th>Tên đăng nhập</th>
+                        <th>Quyền</th>
+                        <th>Tác vụ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (TaiKhoan item in Model)
+                    {
+                        if (item.SUsername != ViewBag.accUsername)
+                        {
+                            <tr>
+                                <form action="~/AccountManager/DeleteAccount" method="post">
+                                    <input id="inpHiddenMTK" type="hidden" name="PK_iMaTK" value="@item.PK_iMaTK" />
+                                    <td class="text-center">1</td>
+                                    <td>@item.SUsername</td>
+                                    <td>@item.STenQuyen</td>
+                                    <td class="text-center">
+                                        <button type="button" name="btnEdit" class="btn btn-edit" onclick="EditAccount(this)" value="@item.PK_iMaTK" data-name="@item.SUsername" data-q="@item.FK_iMaQuyen">Sửa</button>
+                                        <button type="submit" name="btnDel" class="btn btn-del" onclick="return confirm('Xoá?');" value="1">Xoá</button>
+                                    </td>
+                                </form>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </article>
+    </section>
+</div>
+
