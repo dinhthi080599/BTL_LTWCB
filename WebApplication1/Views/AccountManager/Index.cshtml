@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Quản lý tài khoản";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int i = 0;
 }
 <div id="body" class="row">
     <section class="col-5 left">
@@ -16,7 +17,7 @@
                     <option value="2">Người viết bài</option>
                 </select>
                 <label for="sUsername">Tên tài khoản:</label>
-                <input type="text" name="sUsername" id="sUsername" class="form-input">
+                <input type="text" name="sUsername" id="sUsername" class="form-input" required>
                 <label for="sPassword">Mật khẩu mới:</label>
                 <input type="text" name="sPassword" id="sPassword" class="form-input">
                 <button id="submit" type="submit" name="submit" class="btn btn-add" value="add">Thêm</button>
@@ -43,8 +44,8 @@
                         {
                             <tr>
                                 <form action="~/AccountManager/DeleteAccount" method="post">
-                                    <input id="inpHiddenMTK" type="hidden" name="PK_iMaTK" value="@item.PK_iMaTK" />
-                                    <td class="text-center">1</td>
+                                    <input type="hidden" name="PK_iMaTK" value="@item.PK_iMaTK" />
+                                    <td class="text-center">@{i++;}@i</td>
                                     <td>@item.SUsername</td>
                                     <td>@item.STenQuyen</td>
                                     <td class="text-center">

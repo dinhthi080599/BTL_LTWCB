@@ -1,0 +1,63 @@
+﻿@using WebApplication1.Models
+@{
+    ViewBag.Title = "About";
+    int i = 0;
+}
+
+<div class="box-content">
+    <div class="main-side">
+        <article class="slide">
+            <div id="news-slider">
+                <input type="hidden" name="new-link" value="/Home/News?bai-viet=@ViewBag.lstBaiViet[0].Mabv" />
+                <input type="hidden" name="new-link" value="/Home/News?bai-viet=@ViewBag.lstBaiViet[1].Mabv" />
+                <input type="hidden" name="new-link" value="/Home/News?bai-viet=@ViewBag.lstBaiViet[2].Mabv" />
+                <a id="slide-link" href="/Home/News?bai-viet=@ViewBag.lstBaiViet[0].Mabv">
+                    <img class="slide-img" src="~/Content/Assets/IMG/@ViewBag.lstBaiViet[0].Linkanh">
+                    <img class="slide-img hidden" src="~/Content/Assets/IMG/@ViewBag.lstBaiViet[1].Linkanh">
+                    <img class="slide-img hidden" src="~/Content/Assets/IMG/@ViewBag.lstBaiViet[2].Linkanh">
+                </a>
+                <div class="slide-controller text-center">
+                    <button class="btn previous-news" onclick="prevSlide()"><i class="fas fa-angle-left"></i></button>
+                    <button class="btn" onclick="showSlide(0)"><i class="fas fa-circle dots"></i></button>
+                    <button class="btn" onclick="showSlide(1)"><i class="far fa-circle dots"></i></button>
+                    <button class="btn" onclick="showSlide(2)"><i class="far fa-circle dots"></i></button>
+                    <button class="btn next-news" onclick="nextSlide()"><i class="fas fa-angle-right"></i></button>
+                </div>
+            </div>
+            <div class="text-under-slide text-justify">
+                <a href="/Home/News?bai-viet=@ViewBag.lstBaiViet[0].Mabv" class="slide-title news-title">@ViewBag.lstBaiViet[0].Tenbv</a>
+                <a href="/Home/News?bai-viet=@ViewBag.lstBaiViet[1].Mabv" class="slide-title news-title hidden">@ViewBag.lstBaiViet[1].Tenbv</a>
+                <a href="/Home/News?bai-viet=@ViewBag.lstBaiViet[2].Mabv" class="slide-title news-title hidden">@ViewBag.lstBaiViet[2].Tenbv</a>
+            </div>
+        </article>
+        <section class="topic-news hr">
+            @foreach (BaiViet item in ViewBag.lstBaiViet)
+            {
+                if (i++ > 2)
+                {
+                    <article class="news">
+                        <a href="/Home/News?bai-viet=@item.Mabv" class="news-title">@item.Tenbv</a>
+                        <div>
+                            <a href="/Home/News?bai-viet=@item.Mabv" class="img"><img src="~/Content/Assets/IMG/@item.Linkanh" width="100%"></a>
+                            <p class="text-justify text-detail">@item.Motangan</p>
+                        </div>
+                    </article>
+                }
+            }
+        </section>
+    </div>
+    <div class="sub-side">
+        <section class="topic-news hr">
+            <h3 class="topic-title"><a href="#" class="topic-text">Tin nổi bật</a></h3>
+            @foreach (BaiViet item in ViewBag.hotnews)
+            {
+                <article class="news">
+                    <div>
+                        <a href="/Home/News?bai-viet=@item.Mabv" class="img"><img src="~/Content/Assets/IMG/@item.Linkanh" width="100%"></a>
+                        <p class="text-justify"><a href="/Home/News?bai-viet=@item.Mabv" class="news-title">@item.Tenbv</a></p>
+                    </div>
+                </article>
+            }
+        </section>
+    </div>
+</div>

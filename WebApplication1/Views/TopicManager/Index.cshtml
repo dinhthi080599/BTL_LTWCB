@@ -1,17 +1,26 @@
-﻿
+﻿@using WebApplication1.Models
+@model List<Topic>
 @{
     ViewBag.Title = "Quản lý loại bài viết";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int i = 0;
 }
 
 <div id="body" class="row">
     <section class="col-5 left">
         <article>
             <header class="">Thêm/Sửa loại tin</header>
-            <form action="" method="post">
-                <label for="sTenLoaiTin">Tên loại tin:</label>
+            <form id="InsUpdForm" action="~/TopicManager/AddTopic" method="post">
                 <input id="PK_iMaLoaiTin" type="hidden" name="id" value="">
-                <input type="text" name="sTenLoaiTin" id="sTenLoaiTin" class="form-input">
+                <label for="sTenLoaiTin">Tên loại tin:</label>
+                <input type="text" name="sTenLoaiTin" id="sTenLoaiTin" class="form-input" required>
+                <label for="iViTri">Vị trí:</label>
+                <select name="iViTri" id="iViTri" class="form-input">
+                    <option value="1">Chính</option>
+                    <option value="2">Phụ</option>
+                </select>
+                <label for="iSTT">Số thứ tự:</label>
+                <input type="number" name="iSTT" id="iSTT" class="form-input" required min="1">
                 <button id="submit" type="submit" name="submit" class="btn btn-add" value="add">Thêm</button>
                 <button id="cancel" type="button" name="cancel" class="btn btn-del hidden" value="cancel" onclick="cancelEdit(this)">Huỷ</button>
             </form>
@@ -25,34 +34,37 @@
                     <tr>
                         <th width="10%">STT</th>
                         <th>Tên loại tin</th>
+                        <th>Vị trí</th>
+                        <th>STT</th>
                         <th>Tác vụ</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="text-center">1</td>
-                        <td>Thời sự</td>
-                        <td class="text-center">
-                            <button type="button" name="btnEdit" class="btn btn-edit" onclick="editTopic(this)" value="1" data-name="Thời sự">Sửa</button>
-                            <button type="button" name="btnDel" class="btn btn-del" onclick="return confirm('Xoá?');" value="1">Xoá</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center">2</td>
-                        <td>Cộng đồng mạng</td>
-                        <td class="text-center">
-                            <button type="button" name="btnEdit" class="btn btn-edit" onclick="editTopic(this)" value="2" data-name="Cộng động mạng">Sửa</button>
-                            <button type="button" name="btnDel" class="btn btn-del" onclick="return confirm('Xoá?');" value="2">Xoá</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center">3</td>
-                        <td>Thể thao</td>
-                        <td class="text-center">
-                            <button type="button" name="btnEdit" class="btn btn-edit" onclick="editTopic(this)" value="3" data-name="Thể thao">Sửa</button>
-                            <button type="button" name="btnDel" class="btn btn-del" onclick="return confirm('Xoá?');" value="3">Xoá</button>
-                        </td>
-                    </tr>
+                    @foreach (Topic item in Model)
+                    {
+                        <tr>
+                            <form action="~/TopicManager/DeleteTopic" method="post">
+                                <input type="hidden" name="PK_iMaTL" value="@item.PK_iMaTL" />
+                                <td class="text-center">@{i++;}@i</td>
+                                <td>@item.STenTheLoai</td>
+                                @if (@item.IVitri == 1)
+                                {
+                                    <td>Chính</td>
+
+                                }
+                                else
+                                {
+
+                                    <td>Phụ</td>
+                                }
+                                <td>@item.ISTT</td>
+                                <td class="text-center">
+                                    <button type="button" name="btnEdit" class="btn btn-edit" onclick="editTopic(this)" value="@item.PK_iMaTL" data-name="@item.STenTheLoai" data-vitri="@item.IVitri" data-stt="@item.ISTT">Sửa</button>
+                                    <button type="submit" name="btnDel" class="btn btn-del" onclick="return confirm('Xoá?');" value="1">Xoá</button>
+                                </td>
+                            </form>
+                        </tr>
+                    }
                 </tbody>
             </table>
         </article>

@@ -1,0 +1,39 @@
+﻿@using WebApplication1.Models
+@{
+    ViewBag.Title = "Tìm kiếm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="box-content">
+    <div class="main-side">
+        <section class="topic-news hr">
+            <h3 class="topic-title"><a href="#" class="topic-text">Kết quả tìm kiếm cho: @ViewBag.keyword</a></h3>
+            @foreach (BaiViet item in ViewBag.lstBaiViet)
+            {
+                <article class="news">
+                    <a href="/Home/News?bai-viet=@item.Mabv" class="news-title">@item.Tenbv</a>
+                    <div>
+                        <a href="/Home/News?bai-viet=@item.Mabv" class="img"><img src="~/Content/Assets/IMG/@item.Linkanh" width="100%"></a>
+                        <p class="text-justify text-detail">@item.Motangan</p>
+                    </div>
+                </article>
+            }
+        </section>
+    </div>
+    <div class="sub-side">
+        <section class="topic-news hr">
+            <h3 class="topic-title"><a href="#" class="topic-text">Tin nổi bật</a></h3>
+            @foreach (BaiViet item in ViewBag.hotnews)
+            {
+                <article class="news">
+                    <div>
+                        <a href="/Home/News?bai-viet=@item.Mabv" class="img"><img src="~/Content/Assets/IMG/@item.Linkanh" width="100%"></a>
+                        <p class="text-justify"><a href="/Home/News?bai-viet=@item.Mabv" class="news-title">@item.Tenbv</a></p>
+                    </div>
+                </article>
+            }
+        </section>
+    </div>
+</div>
+
+

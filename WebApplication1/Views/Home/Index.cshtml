@@ -1,65 +1,95 @@
-﻿@{
+﻿@using WebApplication1.Models
+@{
     ViewBag.Title = "ITNews";
 }
 
+
 <section class="hot-news hr">
-    <article class="hot-news-main">
+    <article class="news hot-news-main">
         <div>
-            <a href=""><img src="https://sohanews.sohacdn.com/zoom/434_271/2020/3/8/ca-ben-nui-truc-158363563855214368644-crop-158363564368898951551.jpg" width="100%"></a>
+            <a href="/Home/News?bai-viet=@ViewBag.hotnews[0].Mabv"><img src="~/Content/Assets/IMG/@ViewBag.hotnews[0].Linkanh"></a>
         </div>
         <div class="text-justify">
-            <a href=""><h1 class="news-title">Việt Nam ghi nhận thêm 9 ca mắc Covid-19</h1></a>
-            <p class="text-justify text-detail">Chiều tối ngày 8/3, Bộ Y tế đã thông tin thêm 9 trường hợp nhiễm Covid-19. Cả 9 trường hợp trên đều bay trên chuyến bay VN0054 từ London tới Nội Bài.</p>
+            <a href="/Home/News?bai-viet=@ViewBag.hotnews[0].Mabv" class="news-title">@ViewBag.hotnews[0].Tenbv</a>
         </div>
     </article>
     <div class="hot-news-subs">
         <article class="news hot-news-sub">
-            <a href=""><h1 class="news-title">Italy "mạnh tay" phong tỏa khu vực 16 triệu dân, Iran ghi nhận ngày có nhiều ca tử vong nhất</h1></a>
             <div>
-                <a href="" class="img"><img src="https://sohanews.sohacdn.com/zoom/320_200/2020/3/8/ava-15836714397841616012345-crop-15836714587911901712777.jpg" width="100%"></a>
-                <p class="text-justify text-detail">Thống kê của Đại học John Hopkins (Mỹ) cho thấy đến tối 8/3 (giờ Việt Nam), đã có hơn 107.300 người nhiễm COVID-19 trên thế giới và ...</p>
+                <a href="/Home/News?bai-viet=@ViewBag.hotnews[1].Mabv" class="img"><img src="~/Content/Assets/IMG/@ViewBag.hotnews[1].Linkanh" width="100%"></a>
+                <p class="text-justify"><a href="/Home/News?bai-viet=@ViewBag.hotnews[1].Mabv" class="news-title">@ViewBag.hotnews[1].Tenbv</a></p>
             </div>
         </article>
         <article class="news hot-news-sub">
-            <a href=""><h1 class="news-title">9 ca nhiễm Covid-19 mới đang ở đâu?</h1></a>
             <div>
-                <a href="" class="img"><img src="https://sohanews.sohacdn.com/zoom/320_200/2020/3/8/covih192-15836663605931680232550-crop-1583666366287540675277.jpg" width="100%"></a>
-                <p class="text-justify text-detail">Theo thông tin từ Bộ Y tế, 9 ca mắc bệnh Covid-19 mới đều mang quốc tịch nước ngoài, đi trên cùng chuyến bay VN0054.</p>
+                <a href="/Home/News?bai-viet=@ViewBag.hotnews[2].Mabv" class="img"><img src="~/Content/Assets/IMG/@ViewBag.hotnews[2].Linkanh" width="100%"></a>
+                <p class="text-justify"><a href="/Home/News?bai-viet=@ViewBag.hotnews[2].Mabv" class="news-title">@ViewBag.hotnews[2].Tenbv</a></p>
+            </div>
+        </article>
+        <article class="news hot-news-sub">
+            <div>
+                <a href="/Home/News?bai-viet=@ViewBag.hotnews[2].Mabv" class="img"><img src="~/Content/Assets/IMG/@ViewBag.hotnews[3].Linkanh" width="100%"></a>
+                <p class="text-justify"><a href="/Home/News?bai-viet=@ViewBag.hotnews[2].Mabv" class="news-title">@ViewBag.hotnews[3].Tenbv</a></p>
             </div>
         </article>
     </div>
 </section>
-<section class="topic-news hr">
-    <a href="" class="topic-title">Thời sự</a>
-    <article class="news">
-        <a href=""><h1 class="news-title">“Trong ruộng dưa đừng cột dây giày, dưới gốc mận đừng sửa mũ”: Triết lý tránh thị phi dân công sở nào cũng cần nắm rõ</h1></a>
-        <div>
-            <a href="" class="img"><img src="https://sohanews.sohacdn.com/zoom/260_162/2020/photo1583634374307-1583634374580-crop-15836344739852098149320.jpg" width="100%"></a>
-            <p class="text-justify text-detail">Dân công sở phải hàng ngày đối mặt với vô vàn thị phi, và dễ trở thành tâm điểm cho những kẻ “ghen ăn tức ở” thích châm chích, chống đối. Triết lý "ruộng dưa gốc mận" sẽ giúp mọi người hạn chế được điều này!</p>
-        </div>
-    </article>
-    <article class="news">
-        <a href=""><h1 class="news-title">Không muốn "sen" đi lấy chồng, "boss" quyết bám đuôi tới tận lúc nhận lễ ăn hỏi và thảm cảnh khiến ai cũng phì cười</h1></a>
-        <div>
-            <a href="" class="img"><img src="https://sohanews.sohacdn.com/zoom/260_162/2020/photo1583676011826-1583676012046-crop-1583676064490672085619.jpg" width="100%"></a>
-            <p class="text-justify text-detail">Nhìn 'boss' lưu luyến, không muốn rời 'sen' thế này mà dân tình ai cũng cười lăn cười bò.</p>
-        </div>
-    </article>
-</section>
-<section class="topic-news hr">
-    <a href="" class="topic-title">Tin tức 2</a>
-    <article class="news">
-        <a href=""><h1 class="news-title">“Trong ruộng dưa đừng cột dây giày, dưới gốc mận đừng sửa mũ”: Triết lý tránh thị phi dân công sở nào cũng cần nắm rõ</h1></a>
-        <div>
-            <a href="" class="img"><img src="https://sohanews.sohacdn.com/zoom/260_162/2020/photo1583634374307-1583634374580-crop-15836344739852098149320.jpg" width="100%"></a>
-            <p class="text-justify text-detail">Dân công sở phải hàng ngày đối mặt với vô vàn thị phi, và dễ trở thành tâm điểm cho những kẻ “ghen ăn tức ở” thích châm chích, chống đối. Triết lý "ruộng dưa gốc mận" sẽ giúp mọi người hạn chế được điều này!</p>
-        </div>
-    </article>
-    <article class="news">
-        <a href=""><h1 class="news-title">Không muốn "sen" đi lấy chồng, "boss" quyết bám đuôi tới tận lúc nhận lễ ăn hỏi và thảm cảnh khiến ai cũng phì cười</h1></a>
-        <div>
-            <a href="" class="img"><img src="https://sohanews.sohacdn.com/zoom/260_162/2020/photo1583676011826-1583676012046-crop-1583676064490672085619.jpg" width="100%"></a>
-            <p class="text-justify text-detail">Nhìn 'boss' lưu luyến, không muốn rời 'sen' thế này mà dân tình ai cũng cười lăn cười bò.</p>
-        </div>
-    </article>
-</section>
+
+<div class="box-content">
+    @foreach (Topic item in ViewBag.loaitin)
+    {
+        if (item.IVitri == 1)
+        {
+            <div class="main-side">
+                <section class="topic-news hr">
+                    <h3 class="topic-title">
+                        <a href="@Url.Action(
+                    actionName: "LoaiTin",
+                    controllerName: "Home",
+                    routeValues: new {
+                        maloaitin = item.PK_iMaTL
+                    })" class="topic-text">
+                            @item.STenTheLoai
+                        </a>
+                    </h3>
+                    @foreach (BaiViet baiViet in item.lstNews)
+                    {
+                        <article class="news">
+                            <a href="/Home/News?bai-viet=@baiViet.Mabv" class="news-title">@baiViet.Tenbv</a>
+                            <div>
+                                <a href="/Home/News?bai-viet=@baiViet.Mabv" class="img"><img src="~/Content/Assets/IMG/@baiViet.Linkanh"></a>
+                                <p class="text-justify text-detail">@baiViet.Motangan</p>
+                            </div>
+                        </article>
+                    }
+                </section>
+            </div>
+        }
+        else
+        {
+            <div class="sub-side">
+                <section class="topic-news hr">
+                    <h3 class="topic-title">
+                        <a href="@Url.Action(
+                        actionName: "LoaiTin",
+                        controllerName: "Home",
+                        routeValues: new {
+                            maloaitin = item.PK_iMaTL
+                        })" class="topic-text">
+                            @item.STenTheLoai
+                        </a>
+                    </h3>
+                    @foreach (BaiViet baiViet in item.lstNews)
+                    {
+                        <article class="news">
+                            <div>
+                                <a href="/Home/News?bai-viet=@baiViet.Mabv" class="img"><img src="~/Content/Assets/IMG/@baiViet.Linkanh"></a>
+                                <p class="text-justify"><a href="/Home/News?bai-viet=@baiViet.Mabv" class="news-title">@baiViet.Tenbv</a></p>
+                            </div>
+                        </article>
+                    }
+                </section>
+            </div>
+        }
+    }
+</div>

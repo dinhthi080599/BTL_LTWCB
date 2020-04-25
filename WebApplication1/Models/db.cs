@@ -17,7 +17,6 @@ namespace WebApplication1.Models
         public SqlConnection Conn()
         {
             string connetionString;
-            SqlConnection conn;
             string path = HttpContext.Current.Server.MapPath("~/App_Data/ITNews.mdf");
             connetionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path +";Integrated Security=True";
             conn = new SqlConnection(connetionString);

@@ -17,6 +17,15 @@ namespace WebApplication1
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            Application["soluottruycap"] = 0;
+        }
+        protected void Session_Start()
+        {
+            Session["PK_iMaTK"] = "";
+            Session["sUsername"] = "";
+            Session["sPassword"] = "";
+            Session["FK_iMaQuyen"] = "";
+            Session["sTenQuyen"] = "";
         }
     }
 }

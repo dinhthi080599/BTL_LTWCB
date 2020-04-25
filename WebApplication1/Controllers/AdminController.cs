@@ -16,13 +16,11 @@ namespace WebApplication1.Controllers
             {
                 Response.Redirect("~/login");
             }
-            ViewBag.quyen = AccSession.FK_iMaQuyen;
-            ViewBag.unknowThing = AccSession.SPassword;
             return View();
         }
         public bool Check_Session()
         {
-            return AccSession.FK_iMaQuyen > 0;
+            return Session["sUsername"].ToString() != "";
         }
     }
 }

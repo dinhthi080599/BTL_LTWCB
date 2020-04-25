@@ -1,14 +1,20 @@
 function editTopic(that) {
-	document.getElementById('PK_iMaLoaiTin').value = that.value;
-	document.getElementById('sTenLoaiTin').value = that.getAttribute('data-name');
+    document.getElementById('InsUpdForm').action = '/TopicManager/UpdateTopic';
+    document.getElementById('PK_iMaLoaiTin').value = that.value;
+    document.getElementById('sTenLoaiTin').value = that.getAttribute('data-name');
+    document.getElementById('iViTri').value = that.getAttribute('data-vitri');
+    document.getElementById('iSTT').value = that.getAttribute('data-stt');
 	document.getElementById('submit').value = 'update';
 	document.getElementById('submit').innerHTML = 'Cập nhật';
 	document.getElementById('cancel').classList.remove('hidden');
 }
 function cancelEdit(that) {
+    document.getElementById('InsUpdForm').action = '/TopicManager/AddTopic';
     that.classList.add('hidden');
     document.getElementById('PK_iMaLoaiTin').value = '';
     document.getElementById('sTenLoaiTin').value = '';
+    document.getElementById('iViTri').value = 1;
+    document.getElementById('iSTT').value = '';
     document.getElementById('submit').value = 'add';
     document.getElementById('submit').innerHTML = 'Thêm';
 }
@@ -52,17 +58,19 @@ window.onclick = function (event) {
 }
 //end modal-----------------------
 //------------------------checkpass
-function Check(that) {
+function Check() {
     var btn = document.getElementById("btnConfirmCP");
-    var oldThat = md5(that.value);
-    var old = document.getElementById("unknowThing").value;
+    var newpass = document.getElementById("newPass").value;
+    var renewpas = document.getElementById("renewPass").value;
     var message = document.getElementById("warningPass");
-    if (oldThat == old) {
+    if (newpass == renewpas) {
         btn.setAttribute("type", "submit");
         message.classList.add("hidden");
+        return true;
     }
     else {
         message.classList.remove("hidden");
+        return false;
     }
 }
 //checkpass------------------------

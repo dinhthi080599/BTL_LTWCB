@@ -12,11 +12,9 @@ namespace WebApplication1.Controllers
         // GET: AccountManager
         public ActionResult Index()
         {
-            ViewBag.quyen = AccSession.FK_iMaQuyen;
-            ViewBag.unknowThing = AccSession.SPassword;
-            ViewBag.accUsername = AccSession.SUsername;
-            List<TaiKhoan> data = new List<TaiKhoan>();
-            data = new ListAccount().GetListAccounts();
+            ViewBag.quyen = Session["FK_iMaQuyen"];
+            ViewBag.accUsername = Session["sUsername"];
+            List<TaiKhoan> data = ListAccount.Lst.GetListAccounts();
             return View(data);
         }
         [HttpPost]

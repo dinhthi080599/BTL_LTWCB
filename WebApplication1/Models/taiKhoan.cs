@@ -35,20 +35,47 @@ namespace WebApplication1.Models
         #endregion
 
         #region Methods
-        public bool DelAcc(string maTK)
+        public DataRow Get_Account(string sUsername, string sPassword)
         {
             using (SqlConnection conn = base.Conn())
             {
-                conn.Open();
-                using (SqlCommand cmd = new SqlCommand("sp_DelAccount", conn))
+                using (SqlCommand cmd = new SqlCommand("sp_check_login", conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@matk", maTK);
-                    return cmd.ExecuteNonQuery() > 0 ? true : false;
+                    cmd.Parameters.AddWithValue("@username", sUsername);
+                    cmd.Parameters.AddWithValue("@password", sPassword);
+                    conn.Open();
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    DataTable dt = new DataTable();
+                    dt.Load(dr);
+                    DataRow dtr = null;
+                    if (dt.Rows.Count > 0)
+                    {
+                        dtr = dt.Rows[0];
+                    }
+                    return dtr;
+                    
                 }
             }
         }
-
+        public bool Update_Password(string pass, string username)
+        {
+            pass = MD5.Encrypt(pass);
+            using (SqlConnection conn = base.Conn())
+            {
+                using (SqlCommand cmd = new SqlCommand("sp_update_password", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@username", username);
+                    cmd.Parameters.AddWithValue("@password", pass);
+                    conn.Open();
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    DataTable dt = new DataTable();
+                    dt.Load(dr);
+                    return dt.Rows.Count > 0;
+                }
+            }
+        }
         public bool InsAcc(string username, string password, int quyen)
         {
             using (SqlConnection conn = base.Conn())
@@ -64,7 +91,6 @@ namespace WebApplication1.Models
                 }
             }
         }
-
         public bool UpdAcc(string matk, string password, int quyen)
         {
             using (SqlConnection conn = base.Conn())
@@ -79,6 +105,48 @@ namespace WebApplication1.Models
                     return cmd.ExecuteNonQuery() > 0 ? true : false;
                 }
             }
+        }
+        public bool DelAcc(string maTK)
+        {
+            using (SqlConnection conn = base.Conn())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand("sp_DelAccount", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@matk", maTK);
+                    return cmd.ExecuteNonQuery() > 0 ? true : false;
+                }
+            }
+        }
+        #endregion
+    }
+    public class ListAccount : db
+    {
+        #region Parameters
+        private static ListAccount lst;
+        List<TaiKhoan> lstAccs = new List<TaiKhoan>();
+        #endregion
+        internal static ListAccount Lst { get => lst != null ? lst : new ListAccount(); private set => lst = value; }
+        #region Methods
+        public List<TaiKhoan> GetListAccounts()
+        {
+            DataTable dt = new DataTable();
+            using (SqlConnection conn = base.Conn())
+            {
+                conn.Open();
+                string query = "select * from v_list_accounts";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    dt.Load(cmd.ExecuteReader());
+                    foreach (DataRow item in dt.Rows)
+                    {
+                        TaiKhoan tk = new TaiKhoan(item);
+                        lstAccs.Add(tk);
+                    }
+                }
+            }
+            return lstAccs;
         }
         #endregion
     }

@@ -1,0 +1,32 @@
+﻿@using WebApplication1.Models
+@{
+    ViewBag.Title = "News";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="box-content">
+    <div class="main-side">
+        <h2 class="topic-title">@ViewBag.theNew.Tenbv</h2>
+        <h4 class="new-mb">@ViewBag.theNew.Motadai</h4>
+        <img class="new-mb" src="~/Content/Assets/IMG/@ViewBag.theNew.Linkanh" alt="ảnh bài viết" width="100%"/>
+        <div class="new-mb">@ViewBag.theNew.Noidung</div>
+    </div>
+    <div class="sub-side">
+        <section class="topic-news hr">
+            <h3 class="topic-title"><a href="#" class="topic-text">Tin nổi bật</a></h3>
+            @foreach (BaiViet item in ViewBag.hotnews)
+            {
+                <article class="news">
+                    <div>
+                        <a href="/Home/News?bai-viet=@item.Mabv" class="img"><img src="~/Content/Assets/IMG/@item.Linkanh" width="100%"></a>
+                        <p class="text-justify"><a href="/Home/News?bai-viet=@item.Mabv" class="news-title">@item.Tenbv</a></p>
+                    </div>
+                </article>
+            }
+        </section>
+    </div>
+</div>
+
+
+
+
