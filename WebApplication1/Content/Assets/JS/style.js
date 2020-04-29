@@ -44,21 +44,21 @@ function showSlide(that) {
 setInterval(nextSlide, 3000);
 
 //cookie
-var bvdd = document.getElementById('bvdd');
-var linkbvdd = document.getElementById('bvddlink');
-if (document.cookie != "") {
-    var name = "current_read_name=";
-    var ca = document.cookie.split(';');
-    var c = ca[0];
-    var namevalue = c.substr(name.length);
-    linkbvdd.innerHTML = namevalue;
-    console.log(namevalue);
-    name = " current_read_id=";
-    c = ca[1];
-    var id = c.substr(name.length);
-    linkbvdd.setAttribute('href', '/Home/News?bai-viet=' + id);
-}
-else {
-    bvdd.remove();
-    console.log(123);
-}
+//var bvdd = document.getElementById('bvdd');
+//var linkbvdd = document.getElementById('bvddlink');
+//if (document.cookie != "") {
+//    var name = "current_read_name=";
+//    var ca = document.cookie.split(';');
+//    var c = ca[0];
+//    var namevalue = c.substr(name.length);
+//    linkbvdd.innerHTML = namevalue;
+//    console.log(namevalue);
+//    name = " current_read_id=";
+//    c = ca[1];
+//    var id = c.substr(name.length);
+//    linkbvdd.setAttribute('href', '/Home/News?bai-viet=' + id);
+//}
+//else {
+//    bvdd.remove();
+//    console.log(123);
+//}

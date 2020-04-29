@@ -26,6 +26,15 @@ namespace WebApplication1.Controllers
         {
             string sUsername = Request["Username"];
             string sPassword = Request["Password"];
+            if (Request["Rememberpassword"] == "on")
+            {
+                SetCookie(sUsername, sPassword);
+            }
+            else
+            {
+                Response.Cookies["username"].Expires = DateTime.Now.AddDays(-1);
+                Response.Cookies["password"].Expires = DateTime.Now.AddDays(-1);
+            }
             sPassword = MD5.Encrypt(sPassword);
             DataRow dtr = userM.Get_Account(sUsername, sPassword);
             if (dtr != null)
@@ -51,6 +60,7 @@ namespace WebApplication1.Controllers
             }
             return RedirectToAction("Index", new { change = false });
         }
+
         public void ClearSession()
         {
             Session["PK_iMaTK"] = "";
@@ -59,6 +69,7 @@ namespace WebApplication1.Controllers
             Session["FK_iMaQuyen"] = "";
             Session["sTenQuyen"] = "";
         }
+
         private void SetSession(DataRow dtr)
         {
             Session["PK_iMaTK"] = dtr["PK_iMaTK"];
@@ -66,6 +77,17 @@ namespace WebApplication1.Controllers
             Session["sPassword"] = dtr["sPassword"];
             Session["FK_iMaQuyen"] = dtr["FK_iMaQuyen"];
             Session["sTenQuyen"] = dtr["sTenQuyen"];
+        }
+
+        private void SetCookie(string username,string password)
+        {
+            if (username != "" && password != "")
+            {
+                Response.Cookies["username"].Value = username;
+                Response.Cookies["username"].Expires = DateTime.Now.AddDays(1);
+                Response.Cookies["password"].Value = password;
+                Response.Cookies["password"].Expires = DateTime.Now.AddDays(1);
+            }
         }
         #endregion
     }

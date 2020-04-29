@@ -49,10 +49,10 @@ namespace WebApplication1.Controllers
             BaiViet theNew = LstBaiViet.Lst.GetNew(mabv);
             ViewBag.theNew = theNew;
             SetViewBag("new");
-            Response.Cookies["current_read_name"].Value = theNew.Tenbv;
-            Response.Cookies["current_read_id"].Value = theNew.Mabv.ToString();
-            Response.Cookies["current_read_name"].Expires = DateTime.Now.AddDays(1);
-            Response.Cookies["current_read_id"].Expires = DateTime.Now.AddDays(1);
+            //Response.Cookies["current_read_name"].Value = theNew.Tenbv;
+            //Response.Cookies["current_read_id"].Value = theNew.Mabv.ToString();
+            //Response.Cookies["current_read_name"].Expires = DateTime.Now.AddDays(1);
+            //Response.Cookies["current_read_id"].Expires = DateTime.Now.AddDays(1);
             return View();
         }
 

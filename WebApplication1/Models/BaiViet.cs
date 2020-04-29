@@ -100,7 +100,7 @@ namespace WebApplication1.Models
             using (SqlConnection conn = base.Conn())
             {
                 conn.Open();
-                string query = "select * from tbl_baiviet where sTenBaiViet like N'%"+keyword + "%' or sNoiDung like N'%" + keyword + "%' or sMoTaNgan like N'%" + keyword + "%' or sMoTaDai like N'%" + keyword + "%' and sTrangThai like N'Đã duyệt' order by PK_iMaBaiViet desc";
+                string query = "select * from tbl_baiviet where sTenBaiViet like N'%" + keyword + "%' or sNoiDung like N'%" + keyword + "%' or sMoTaNgan like N'%" + keyword + "%' or sMoTaDai like N'%" + keyword + "%' and sTrangThai like N'Đã duyệt' order by PK_iMaBaiViet desc";
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     dt.Load(cmd.ExecuteReader());
